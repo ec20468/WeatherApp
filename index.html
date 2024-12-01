@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Weather App</h1>
+
+      <div class="box">
+        <input type="text" id="locationInput" placeholder="City" />
+        <a href="#">
+          <i class="fas fa-search"></i>
+        </a>
+        <button id="searchButton">Search</button>
+      </div>
+
+      <div class="feature">
+        <img id="flag" alt="Country Flag" style="width: 50px; height: auto" />
+        <h2 id="location"></h2>
+        <p id="temperature"></p>
+        <p id="description"></p>
+      </div>
+
+      <div class="previous-searches">
+        <h2>Previous Searches</h2>
+        <div id="previousCards" class="cards-container"></div>
+      </div>
+      
+
+    <script src="script.js"></script>
+  </body>
+</html>
