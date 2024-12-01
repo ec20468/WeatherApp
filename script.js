@@ -78,6 +78,10 @@ function addPreviousLocation(data) {
   }
 }
 
+window.onload = () => {
+  fetchWeather("London"); // Automatically fetch London weather on page load
+};
+
 // Display previously searched locations as cards
 function displayPreviousLocations() {
   previousCardsContainer.innerHTML = ""; // Clear the current list of cards
