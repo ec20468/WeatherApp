@@ -88,7 +88,7 @@ function displayPreviousLocations() {
 
   previousLocations.forEach((location) => {
     const card = document.createElement("div");
-    card.classList.add("feature"); // Add the same class as the original card to match styling
+    card.classList.add("feature");
 
     card.innerHTML = `
       <img src="https://flagcdn.com/48x36/${location.sys.country.toLowerCase()}.png" alt="Flag">
@@ -97,7 +97,6 @@ function displayPreviousLocations() {
       <p>${location.weather[0].description}</p>
     `;
 
-    // Add the pointer events to the new cards for consistent behavior
     card.addEventListener("pointermove", (ev) => {
       const rect = card.getBoundingClientRect();
       card.style.setProperty("--x", ev.clientX - rect.left);

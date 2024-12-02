@@ -1,7 +1,5 @@
 body {
-  background: linear-gradient(to right, #86878d, #2d333b);
   background-position: center;
-  color: #ffffff;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -51,7 +49,7 @@ body {
   border-radius: inherit;
   background: radial-gradient(
     800px circle at var(--x-px) var(--y-px),
-    rgba(255, 255, 255, 0.3),
+    rgba(0, 0, 0, 0.3),
     transparent 40%
   );
 }
