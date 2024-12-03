@@ -11,7 +11,6 @@ const previousCardsContainer = document.getElementById("previousCards");
 
 let previousLocations = [];
 
-// Pointer events for the feature
 weatherInfoEl.addEventListener("pointermove", (ev) => {
   const rect = weatherInfoEl.getBoundingClientRect();
   weatherInfoEl.style.setProperty("--x", ev.clientX - rect.left);
@@ -28,7 +27,6 @@ weatherInfoEl.addEventListener("pointerleave", () => {
   weatherInfoEl.style.setProperty("--y", "0");
 });
 
-// Fetch weather for a location
 async function fetchWeather(location) {
   const url = `${apiUrl}?q=${location}&appid=${apiKey}&units=metric`;
 
@@ -46,20 +44,17 @@ async function fetchWeather(location) {
     const countryCode = data.sys.country;
     fetchCountryFlag(countryCode);
 
-    // Add the searched location to the array
     addPreviousLocation(data);
   } catch (error) {
     console.error("Error fetching weather data: ", error);
   }
 }
 
-// Fetch country flag
 function fetchCountryFlag(countryCode) {
   const flagUrl = `https://flagcdn.com/48x36/${countryCode.toLowerCase()}.png`;
   document.getElementById("flag").src = flagUrl;
 }
 
-// Handle search button click
 searchButton.addEventListener("click", () => {
   const location = locationInput.value.trim();
   if (location) {
@@ -69,9 +64,7 @@ searchButton.addEventListener("click", () => {
   }
 });
 
-// Add the searched location to the previous locations array and display it
 function addPreviousLocation(data) {
-  // Ensure we do not add duplicates
   if (!previousLocations.some((loc) => loc.name === data.name)) {
     previousLocations.push(data);
     displayPreviousLocations();
@@ -79,12 +72,11 @@ function addPreviousLocation(data) {
 }
 
 window.onload = () => {
-  fetchWeather("London"); // Automatically fetch London weather on page load
+  fetchWeather("London");
 };
 
-// Display previously searched locations as cards
 function displayPreviousLocations() {
-  previousCardsContainer.innerHTML = ""; // Clear the current list of cards
+  previousCardsContainer.innerHTML = "";
 
   previousLocations.forEach((location) => {
     const card = document.createElement("div");
@@ -114,7 +106,6 @@ function displayPreviousLocations() {
     });
 
     card.addEventListener("click", () => {
-      // When a card is clicked, display the weather data for that location
       locationElement.textContent = location.name;
       temperatureElement.textContent = `${Math.round(location.main.temp)}°C`;
       descriptionElement.textContent = location.weather[0].description;
